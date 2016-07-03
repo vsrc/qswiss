@@ -1,5 +1,5 @@
-package util
-
+package qswiss
+ 
 import (
 	"crypto/rand"
 	"crypto/sha512"

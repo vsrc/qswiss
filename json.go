@@ -1,5 +1,5 @@
-package util
-
+package qswiss
+ 
 import (
 	"encoding/json"
 )

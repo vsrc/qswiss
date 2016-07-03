@@ -1,4 +1,4 @@
-package util
+package qswiss
 
 import (
 	"net/url"
