@@ -9,16 +9,19 @@ import (
 )
 
 // GenerateToken returns random hash that can be used as token
-func GenerateToken(len int) string {
+// accepts len integer as number of characters for autogenterated salt
+func GenerateToken(len int) (string, error) {
 
 	base := make([]byte, len)
 	_, err := rand.Read(base)
-	PanicIf(err)
+	if err != nil {
+		return "", err
+	}
 	salt := base64.StdEncoding.EncodeToString(base)
 
 	hash := sha512.New()
 	hash.Write([]byte(salt))
-	return base64.StdEncoding.EncodeToString(hash.Sum(nil))
+	return base64.StdEncoding.EncodeToString(hash.Sum(nil)), nil
 }
 
 // GenerateRandomInt returns random integer
